@@ -27,6 +27,16 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['kazimshaikh07.pythonanywhere.com']
 
+# Add Render's external hostname to ALLOWED_HOSTS
+if 'RENDER_EXTERNAL_HOSTNAME' in os.environ:
+    ALLOWED_HOSTS.append(os.environ['RENDER_EXTERNAL_HOSTNAME'])
+
+CSRF_TRUSTED_ORIGINS = ['https://kazimshaikh07.pythonanywhere.com']
+
+# Add Render's external hostname to CSRF_TRUSTED_ORIGINS
+if 'RENDER_EXTERNAL_HOSTNAME' in os.environ:
+    CSRF_TRUSTED_ORIGINS.append('https://' + os.environ['RENDER_EXTERNAL_HOSTNAME'])
+
 
 # Application definition
 
