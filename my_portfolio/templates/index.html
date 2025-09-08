@@ -223,50 +223,7 @@
         {% endif %}
         <form method="post" action="{% url 'my_portfolio' %}">
           {% csrf_token %}
-          <div class="form-group my-4">
-            <label for="name" style="color: white;">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              required
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="email" style="color: white;">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="phone" style="color: white;">Phone Number</label>
-            <input
-              type="tel"
-              class="form-control"
-              id="phone"
-              name="phone"
-              placeholder="Enter your phone number"
-              pattern="[0-9]{10}"
-              inputmode="numeric"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="message" style="color: white;">Message</label>
-            <textarea
-              class="form-control"
-              id="message"
-              name="message"
-              rows="3"
-              required
-            ></textarea>
-          </div>
+          {{ form.as_p }}
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>
