@@ -283,6 +283,13 @@ body {
   min-height: 2rem;
 }
 
+#greeting {
+  font-size: 3rem;
+  color: #00bcd4;
+  transition: opacity 0.5s ease-in-out;
+  display: inline-block;
+}
+
 .greeting-text {
   display: inline-block;
   transition: all 0.3s ease;
@@ -556,6 +563,56 @@ body {
 /* Contact Section */
 .contact-section {
   background: #0a0a0a;
+}
+
+.contact-section form {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-section form p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.contact-section form label {
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.contact-section form input,
+.contact-section form textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-section form input:focus,
+.contact-section form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
+
+.contact-section form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-section form button {
+  align-self: flex-start;
+  margin-top: 1rem;
 }
 
 .contact-grid {

@@ -29,7 +29,7 @@
     <!-- Debug info -->
     {% if debug %}
     <div class="debug-info">
-      CSS URL: {% static 'my_portfolio/css/style.css' %}
+      CSS URL: {% static 'css/style.css' %}
     </div>
     {% endif %}
     <!-- Navigation -->
@@ -64,15 +64,7 @@
         <div class="hero-content">
           <h1 class="hero-title">
             <span class="greeting">
-              <span
-                id="greeting"
-                style="
-                  font-size: 3rem;
-                  color: #00bcd4;
-                  transition: opacity 0.5s ease-in-out;
-                  display: inline-block;
-                "
-              >
+              <span id="greeting">
                 Hello
               </span>
             </span>
@@ -214,13 +206,6 @@
     <section id="contact" class="section contact-section">
       <div class="container">
         <h2 class="section-title">Connect with me</h2>
-        {% if messages %}
-          <div class="my-3">
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
-            {% endfor %}
-          </div>
-        {% endif %}
         <form method="post" action="{% url 'my_portfolio' %}">
           {% csrf_token %}
           {{ form.as_p }}
