@@ -477,6 +477,56 @@ body {
   background: #0a0a0a;
 }
 
+.contact-section form {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-section form p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+.contact-section form label {
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.contact-section form input,
+.contact-section form textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-section form input:focus,
+.contact-section form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
+
+.contact-section form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-section form button {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -515,7 +565,38 @@ body {
   font-weight: 500;
 }
 
-/* Skills Section */
+/* Override Bootstrap form styles in the contact section */
+.contact-section input,
+.contact-section textarea,
+.contact-section select {
+  background: #181818;
+  color: #fff;
+  border: 1px solid #00bcd4;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-section label {
+  color: #00bcd4;
+  font-weight: 500;
+}
+
+.contact-section button[type="submit"] {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.contact-section button[type="submit"]:hover {
+  background: #0097a7;
+}/* Skills Section */
 .skills-subtitle {
   text-align: center;
   color: #a0a0a0;

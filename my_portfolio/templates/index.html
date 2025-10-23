@@ -18,20 +18,8 @@
     />
     <!-- Project CSS (loaded after Bootstrap to override) -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <!-- Debug info -->
-    {% if debug %}
-    <style>
-      .debug-info { position: fixed; top: 10px; right: 10px; background: #000; color: #0f0; padding: 10px; font-family: monospace; z-index: 10000; font-size: 12px; }
-    </style>
-    {% endif %}
   </head>
   <body>
-    <!-- Debug info -->
-    {% if debug %}
-    <div class="debug-info">
-      CSS URL: {% static 'css/style.css' %}
-    </div>
-    {% endif %}
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
@@ -50,23 +38,27 @@
       </div>
     </nav>
     <!-- alerts -->
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+    {% if messages %} {% for message in messages %}
+    <div
+      class="alert alert-{{ message.tags }} alert-dismissible fade show my-0"
+      role="alert"
+    >
       <strong>{{message}}</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
     </div>
-    {% endfor %}
-    {% endif %}
+    {% endfor %} {% endif %}
     <!-- Hero Section -->
     <section id="my_portfolio" class="hero">
       <div class="hero-container">
         <div class="hero-content">
           <h1 class="hero-title">
             <span class="greeting">
-              <span id="greeting">
-                Hello
-              </span>
+              <span id="greeting"> Hello </span>
             </span>
             <br />
             <span class="intro-text">I am Mohammed Kazim Shaikh.</span>
@@ -78,7 +70,13 @@
           </p>
           <div class="hero-cta">
             <div class="hero-buttons-first">
-              <a href="https://1drv.ms/b/c/2d31b20ea7879e45/EfKKviXX0tZEnkrYWnjNYaYBE1-en9RnnViQj4esJHIJbw?e=2WkBKj" target="_blank" rel="noopener" class="btn-resume">See Resume <span class="arrow">›</span></a>
+              <a
+                href="https://1drv.ms/b/c/2d31b20ea7879e45/EfKKviXX0tZEnkrYWnjNYaYBE1-en9RnnViQj4esJHIJbw?e=2WkBKj"
+                target="_blank"
+                rel="noopener"
+                class="btn-resume"
+                >See Resume <span class="arrow">›</span></a
+              >
             </div>
             <div class="hero-buttons-second">
               <a href="#contact" class="btn btn-primary">Get In Touch</a>
@@ -92,28 +90,33 @@
     <!-- Experience Section -->
     <section id="experience" class="section">
       <div class="container">
-        <h2 class="section-title">✦ Experience</h2>
+        <h2 class="section-title">💼 Experience</h2>
         <div class="experience-item">
-          <h3>Full-Stack Developer - Personal Projects</h3>
+          <h3>
+            Python Developer Intern – Applligent Technologies Private Limited
+          </h3>
+          <p>July 2025 – Sep 2025 | Indore, Madhya Pradesh</p>
           <ul class="experience-list">
             <li>
-              Developed TaskNest, an online project submission platform that
-              streamlines faculty workload with GitHub URL submissions and
-              real-time tracking capabilities.
+              Completed an internship focused on Python web development using
+              the Django framework.
             </li>
             <li>
-              Built AddSpace using JSP/Servlet technology, creating a
-              comprehensive booking platform for managing short-term rental
-              spaces with user authentication and booking management.
+              Performed various development tasks, including creating RESTful
+              APIs, managing SQLite/MySQL databases, and working on backend
+              logic and authentication modules.
             </li>
             <li>
-              Created ChallengeX fitness application promoting user motivation
-              through interactive leaderboards and challenging fitness goals.
+              Collaborated with the development team to debug, test, and
+              optimize Django-based web applications.
             </li>
             <li>
-              Actively engaged in continuous learning and skill development,
-              staying updated with the latest trends in web development and
-              database technologies.
+              Gained hands-on experience in MVC architecture, template
+              rendering, and data handling.
+            </li>
+            <li>
+              Strengthened understanding of full-stack workflows, version
+              control using Git, and project deployment practices.
             </li>
           </ul>
         </div>
@@ -126,6 +129,39 @@
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
           <div class="project-card">
+            <h3>KiranaExpress – Online Grocery Platform</h3>
+            <p>
+              A full-featured online grocery platform allowing users to browse
+              products, add items to the cart, and place orders seamlessly.
+              Designed to simplify shopping with a user-friendly interface and
+              smooth checkout process.
+            </p>
+            <div class="project-tech">
+              Python • Django • HTML/CSS • JavaScript • SQLite
+            </div>
+            <p>
+              Hosted live for global access:
+              <a href="https://kiranakart-1.onrender.com/" target="_blank"
+                >https://kiranakart-1.onrender.com/</a
+              >
+            </p>
+          </div>
+          <div class="project-card">
+            <h3>Portfolio Website – Personal Portfolio</h3>
+            <p>
+              A clean and modern personal portfolio built from scratch.
+              Showcases skills, projects, and experience in a professional
+              layout.
+            </p>
+            <div class="project-tech">HTML • CSS • JavaScript</div>
+            <p>
+              Hosted live using Render for global accessibility:
+              <a href="https://kazim-s-portfolio.onrender.com/" target="_blank"
+                >https://kazim-s-portfolio.onrender.com/</a
+              >
+            </p>
+          </div>
+          <div class="project-card">
             <h3>TaskNest</h3>
             <p>
               Online project submission platform easing faculty workload with
@@ -134,24 +170,6 @@
             <div class="project-tech">
               Python • Flask • HTML/CSS • JavaScript
             </div>
-          </div>
-          <div class="project-card">
-            <h3>AddSpace</h3>
-            <p>
-              JSP/Servlet-based booking platform for managing short-term rental
-              spaces with comprehensive user management.
-            </p>
-            <div class="project-tech">
-              Java • JSP/Servlet • MySQL • Bootstrap
-            </div>
-          </div>
-          <div class="project-card">
-            <h3>ChallengeX</h3>
-            <p>
-              Fitness challenge app promoting motivation through leaderboards
-              and extreme challenges with user tracking.
-            </p>
-            <div class="project-tech">Python • Flask • SQLite • JavaScript</div>
           </div>
         </div>
       </div>
@@ -207,8 +225,7 @@
       <div class="container">
         <h2 class="section-title">Connect with me</h2>
         <form method="post" action="{% url 'my_portfolio' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
+          {% csrf_token %} {{ form.as_p }}
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>
@@ -219,29 +236,78 @@
       <div class="container my-4">
         <h2 class="footer-title">Where to Reach Me</h2>
         <div class="footer-icons">
-          <a href="https://www.linkedin.com/in/kazim-shaikh" class="icon-link" target="_blank" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="42" height="42" fill="currentColor" aria-hidden="true"><path d="M19 3A2.94 2.94 0 0 1 22 6v12a2.94 2.94 0 0 1-3 3H5a2.94 2.94 0 0 1-3-3V6a2.94 2.94 0 0 1 3-3Zm-9.65 14.57V10H6.11v7.57ZM7.6 8.79a1.31 1.31 0 1 0-1.31-1.31 1.31 1.31 0 0 0 1.31 1.31ZM18 17.57v-4.09c0-2.19-1.17-3.21-2.72-3.21a2.35 2.35 0 0 0-2.12 1.16h-.03V10h-2.2v7.57h2.29v-3.76a1.33 1.33 0 0 1 1.29-1.47c.77 0 1.07.56 1.07 1.39v3.84Z"/></svg>
+          <a
+            href="https://www.linkedin.com/in/kazim-shaikh"
+            class="icon-link"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="42"
+              height="42"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M19 3A2.94 2.94 0 0 1 22 6v12a2.94 2.94 0 0 1-3 3H5a2.94 2.94 0 0 1-3-3V6a2.94 2.94 0 0 1 3-3Zm-9.65 14.57V10H6.11v7.57ZM7.6 8.79a1.31 1.31 0 1 0-1.31-1.31 1.31 1.31 0 0 0 1.31 1.31ZM18 17.57v-4.09c0-2.19-1.17-3.21-2.72-3.21a2.35 2.35 0 0 0-2.12 1.16h-.03V10h-2.2v7.57h2.29v-3.76a1.33 1.33 0 0 1 1.29-1.47c.77 0 1.07.56 1.07 1.39v3.84Z"
+              />
+            </svg>
           </a>
-          <a href="https://github.com/kazimshaikh07" class="icon-link" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" width="42" height="42" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.162 19.495c.5.092.683-.215.683-.48 0-.237-.009-.866-.014-1.7-2.779.603-3.366-1.34-3.366-1.34-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.071 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.11-4.555-4.944 0-1.091.39-1.985 1.03-2.684-.103-.253-.447-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.56 9.56 0 0 1 12 6.843c.85.004 1.705.115 2.504.338 1.908-1.295 2.747-1.026 2.747-1.026.547 1.378.203 2.397.1 2.65.64.7 1.028 1.593 1.028 2.684 0 3.842-2.339 4.688-4.566 4.936.359.309.678.919.678 1.853 0 1.337-.012 2.416-.012 2.743 0 .268.179.578.688.48A10 10 0 0 0 12 2Z"/></svg>
+          <a
+            href="https://github.com/kazimshaikh07"
+            class="icon-link"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="42"
+              height="42"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2a10 10 0 0 0-3.162 19.495c.5.092.683-.215.683-.48 0-.237-.009-.866-.014-1.7-2.779.603-3.366-1.34-3.366-1.34-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.071 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.091-.647.35-1.088.636-1.339-2.22-.253-4.555-1.11-4.555-4.944 0-1.091.39-1.985 1.03-2.684-.103-.253-.447-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.56 9.56 0 0 1 12 6.843c.85.004 1.705.115 2.504.338 1.908-1.295 2.747-1.026 2.747-1.026.547 1.378.203 2.397.1 2.65.64.7 1.028 1.593 1.028 2.684 0 3.842-2.339 4.688-4.566 4.936.359.309.678.919.678 1.853 0 1.337-.012 2.416-.012 2.743 0 .268.179.578.688.48A10 10 0 0 0 12 2Z"
+              />
+            </svg>
           </a>
-          <a href="mailto:kazim.shaikh0@gmail.com" class="icon-link" aria-label="Email">
-            <svg viewBox="0 0 24 24" width="42" height="42" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"/></svg>
+          <a
+            href="mailto:kazim.shaikh0@gmail.com"
+            class="icon-link"
+            aria-label="Email"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="42"
+              height="42"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5Z"
+              />
+            </svg>
           </a>
         </div>
       </div>
-      <div class="container"><p class="footer-note">Designed by Mohammed Kazim Shaikh, all rights reserved!</p></div>
+      <div class="container">
+        <p class="footer-note">
+          Designed by Mohammed Kazim Shaikh, all rights reserved!
+        </p>
+      </div>
     </footer>
 
     <!-- Custom cursor elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-tail"></div>
-    
+
     <script src="{% static 'js/script.js' %}"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous">
-    </script>
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
