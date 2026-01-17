@@ -145,3 +145,18 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'kzmshaikh07@gmail.com'
+EMAIL_HOST_PASSWORD = 'xfeyrvcntozjbhje'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Admin email for receiving contact form submissions
+# It's recommended to set this as an environment variable in production.
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'kzmshaikh07@gmail.com')
