@@ -25,17 +25,15 @@ SECRET_KEY = 'django-insecure-*q41-eezfluqi(#4y&tnl3c%y6cu3=4wa+lesh^n&1er@ui98&
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-*q41-eezfluqi(#4y&tnl3c%y6cu3=4wa+lesh^n&1er@ui98&')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
+# DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['kazimshaikh07.pythonanywhere.com']
 ALLOWED_HOSTS = []
 
 # Add Render's external hostname to ALLOWED_HOSTS
 if 'RENDER_EXTERNAL_HOSTNAME' in os.environ:
     ALLOWED_HOSTS.append(os.environ['RENDER_EXTERNAL_HOSTNAME'])
 
-CSRF_TRUSTED_ORIGINS = ['https://kazimshaikh07.pythonanywhere.com']
 if DEBUG:
     ALLOWED_HOSTS.extend(['localhost', '127.0.0.1'])
 
@@ -138,6 +136,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'my_portfolio/static'),
+]
 
 
 # Default primary key field type

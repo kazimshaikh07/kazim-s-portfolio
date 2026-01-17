@@ -16,9 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-from my_portfolio import views
 
 admin.site.site_header = "Kazim Portfolio"
 admin.site.site_title = "MOHAMMED KAZIM SHAIKH Admin Portal"
@@ -26,5 +23,6 @@ admin.site.index_title = "Welcome to KAZIM's portfolio"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.my_portfolio, name='my_portfolio'),
+    path('', include('my_portfolio.urls')),
 ]
+

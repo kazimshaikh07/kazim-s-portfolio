@@ -147,28 +147,21 @@
             </p>
           </div>
           <div class="project-card">
-            <h3>Portfolio Website – Personal Portfolio</h3>
+            <h3>AddSpace</h3>
             <p>
-              A clean and modern personal portfolio built from scratch.
-              Showcases skills, projects, and experience in a professional
-              layout.
-            </p>
-            <div class="project-tech">HTML • CSS • JavaScript</div>
-            <p>
-              Hosted live using Render for global accessibility:
-              <a href="https://kazim-s-portfolio.onrender.com/" target="_blank"
-                >https://kazim-s-portfolio.onrender.com/</a
-              >
-            </p>
-          </div>
-          <div class="project-card">
-            <h3>TaskNest</h3>
-            <p>
-              Online project submission platform easing faculty workload with
-              GitHub URL submissions and real-time tracking.
+              A web-based platform that allows users to rent spaces such as halls, gardens, and lawns on an hourly basis, instead of full-day booking. This helps users save cost by paying only for the required duration.
             </p>
             <div class="project-tech">
-              Python • Flask • HTML/CSS • JavaScript
+              Python • Django • HTML/CSS • JavaScript
+            </div>
+          </div>
+          <div class="project-card">
+            <h3>TaskNest – Online Project Submission System</h3>
+            <p>
+              An online project submission system that allows students to submit project details digitally and enables faculty to review and manage submissions efficiently using a relational database.
+            </p>
+            <div class="project-tech">
+              Java • JDBC • PostgreSQL
             </div>
           </div>
         </div>
@@ -185,36 +178,19 @@
         <div class="skills-grid">
           <div class="skill-category">
             <h3>Languages</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">HTML/CSS</span>
-            </div>
+            <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span></div>
           </div>
           <div class="skill-category">
             <h3>Frameworks</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Flask</span>
-              <span class="skill-tag">Django</span>
-              <span class="skill-tag">JSP/Servlet</span>
-            </div>
+            <div class="skill-tags"><span class="skill-tag">Django</span><span class="skill-tag">JSP/Servlet</span><span class="skill-tag">Spring Framework</span></div>
           </div>
           <div class="skill-category">
             <h3>Databases</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">SQLite</span>
-              <span class="skill-tag">SQL</span>
-            </div>
+            <div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">SQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">JDBC</span></div>
           </div>
           <div class="skill-category">
             <h3>Tools</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Git & GitHub</span>
-              <span class="skill-tag">VS Code</span>
-              <span class="skill-tag">Command Line</span>
-            </div>
+            <div class="skill-tags"><span class="skill-tag">Git & GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">Command Line</span></div>
           </div>
         </div>
       </div>
@@ -225,7 +201,27 @@
       <div class="container">
         <h2 class="section-title">Connect with me</h2>
         <form method="post" action="{% url 'my_portfolio' %}">
-          {% csrf_token %} {{ form.as_p }}
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+            {{ form.name.errors }}
+            {{ form.name }}
+          </div>
+          <div class="mb-3">
+            <label for="{{ form.email.id_for_label }}" class="form-label">Email address</label>
+            {{ form.email.errors }}
+            {{ form.email }}
+          </div>
+          <div class="mb-3">
+            <label for="{{ form.phone.id_for_label }}" class="form-label">Phone</label>
+            {{ form.phone.errors }}
+            {{ form.phone }}
+          </div>
+          <div class="mb-3">
+            <label for="{{ form.message.id_for_label }}" class="form-label">Message</label>
+            {{ form.message.errors }}
+            {{ form.message }}
+          </div>
           <button class="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>
