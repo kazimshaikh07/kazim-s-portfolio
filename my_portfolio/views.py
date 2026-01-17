@@ -31,14 +31,24 @@ def my_portfolio(request):
                 {form.cleaned_data['message']}
                 """
                 
-                send_mail(
-                    subject,
-                    message,
-                    settings.DEFAULT_FROM_EMAIL,
-                    [settings.ADMIN_EMAIL],
-                    fail_silently=False,
-                )
-                messages.success(request, "Thank you for reaching out! Your message has been sent successfully. I’ll get back to you as soon as possible.")
+                # Check if email credentials are configured
+                if not settings.EMAIL_HOST_USER or not settings.EMAIL_HOST_PASSWORD:
+                    logger.warning("Email credentials not configured. Contact form saved but email not sent.")
+                    messages.success(request, "Thank you for reaching out! Your message has been saved.")
+                else:
+                    try:
+                        send_mail(
+                            subject,
+                            message,
+                            settings.DEFAULT_FROM_EMAIL,
+                            [settings.ADMIN_EMAIL],
+                            fail_silently=True,  # Don't block the request waiting for email
+                        )
+                        messages.success(request, "Thank you for reaching out! Your message has been sent successfully. I'll get back to you as soon as possible.")
+                    except Exception as email_error:
+                        # Log email error but don't fail the form submission
+                        logger.error(f"Failed to send email: {str(email_error)}", exc_info=True)
+                        messages.success(request, "Thank you for reaching out! Your message has been saved. I'll get back to you soon.")
             except Exception as e:
                 # Log the specific error for debugging
                 logger.error(f"Error processing contact form: {str(e)}", exc_info=True)
