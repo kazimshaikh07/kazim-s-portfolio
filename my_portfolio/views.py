@@ -4,6 +4,9 @@ from django.contrib import messages
 from datetime import datetime
 from django.core.mail import send_mail
 from django.conf import settings
+import logging
+
+logger = logging.getLogger(__name__)
 
 def my_portfolio(request):
     if request.method == 'POST':
@@ -37,9 +40,10 @@ def my_portfolio(request):
                 )
                 messages.success(request, "Thank you for reaching out! Your message has been sent successfully. I’ll get back to you as soon as possible.")
             except Exception as e:
-                # Print the specific error to the console/logs for debugging
+                # Log the specific error for debugging
+                logger.error(f"Error processing contact form: {str(e)}", exc_info=True)
                 print(f"Error processing contact form: {e}")
-                messages.error(request, f"Error: {e}")
+                messages.error(request, f"Sorry, there was an error sending your message. Please try again later.")
 
             return redirect('my_portfolio')
         else:
