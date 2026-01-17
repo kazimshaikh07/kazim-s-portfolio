@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,8 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*q41-eezfluqi(#4y&tnl3c%y6cu3=4wa+lesh^n&1er@ui98&'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-*q41-eezfluqi(#4y&tnl3c%y6cu3=4wa+lesh^n&1er@ui98&')
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-*q41-eezfluqi(#4y&tnl3c%y6cu3=4wa+lesh^n&1er@ui98&')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -153,10 +153,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default=None)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default=None)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Admin email for receiving contact form submissions
-# It's recommended to set this as an environment variable in production.
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'kzmshaikh07@gmail.com')
+ADMIN_EMAIL = config('ADMIN_EMAIL', default='kzmshaikh07@gmail.com')
